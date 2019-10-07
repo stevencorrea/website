@@ -51,7 +51,7 @@ volume type used.
 To use a volume, a Pod specifies what volumes to provide for the Pod (the
 `.spec.volumes`
 field) and where to mount those into Containers (the
-`.spec.containers.volumeMounts`
+`.spec.containers[*].volumeMounts`
 field).
 
 A process in a container sees a filesystem view composed from their Docker
@@ -1339,7 +1339,7 @@ spec:
       csi:
         driver: inline.storage.kubernetes.io
         volumeAttributes:
-              foo: bar
+          foo: bar
 ```
 
 This feature requires CSIInlineVolume feature gate to be enabled. It
